@@ -1,0 +1,19 @@
+🤖 CYBORG 🤖 2026-03-10T10:12:54,214 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:54,233 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:54,241 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:54,249 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [QUEST] - The quest: 'showsRetryUntilPollingThenGetsUsers(Quest)' has begun and is crafted.
+🤖 CYBORG 🤖 2026-03-10T10:12:54,264 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,284 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [COMMON] - Condition satisfied on attempt #3, returning result.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,614 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [API] - Prepared RequestSpecification with pathParams: {}, queryParams: {page=2}, headers: {}
+🤖 CYBORG 🤖 2026-03-10T10:12:56,876 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] STEP  [API] - Sending request to endpoint GET-https://reqres.in/api/users?page=2.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,881 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [API] - Request body: .
+🤖 CYBORG 🤖 2026-03-10T10:12:56,886 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:57,770 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] STEP  [API] - Response with status: 200 received from endpoint: GET-https://reqres.in/api/users?page=2 in 874ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:57,816 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:57,821 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:57 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:57,838 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:57,844 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=200}]
+🤖 CYBORG 🤖 2026-03-10T10:12:57,852 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 200, Actual: 200)
+🤖 CYBORG 🤖 2026-03-10T10:12:57,894 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [QUEST] - The quest has dropped the ring.
+🤖 CYBORG 🤖 2026-03-10T10:12:57,899 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [QUEST] - The quest has reached his end
+🤖 CYBORG 🤖 2026-03-10T10:12:57,915 [scenario=RetryUntilExamplesTest.showsRetryUntilPollingThenGetsUsers] INFO  [QUEST] - The quest of 'showsRetryUntilPollingThenGetsUsers(Quest)' has concluded with glory. Status: SUCCESS. Duration: 3 seconds.

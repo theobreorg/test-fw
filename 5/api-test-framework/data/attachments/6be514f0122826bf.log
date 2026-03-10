@@ -1,0 +1,27 @@
+🤖 CYBORG 🤖 2026-03-10T10:12:58,464 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:58,471 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:58,477 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:58,486 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [QUEST] - The quest: 'showsLateCraftModelMaterializedOnDemand(Quest, Late)' has begun and is crafted.
+🤖 CYBORG 🤖 2026-03-10T10:12:58,545 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:58,555 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [API] - Prepared RequestSpecification with pathParams: {}, queryParams: {page=2}, headers: {}
+🤖 CYBORG 🤖 2026-03-10T10:12:58,564 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] STEP  [API] - Sending request to endpoint GET-https://reqres.in/api/users?page=2.
+🤖 CYBORG 🤖 2026-03-10T10:12:58,569 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Request body: .
+🤖 CYBORG 🤖 2026-03-10T10:12:58,572 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:58,745 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] STEP  [API] - Response with status: 200 received from endpoint: GET-https://reqres.in/api/users?page=2 in 168ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:58,763 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:58,769 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:58 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:58,787 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:58,794 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=200}]
+🤖 CYBORG 🤖 2026-03-10T10:12:58,797 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 200, Actual: 200)
+🤖 CYBORG 🤖 2026-03-10T10:12:58,831 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/users.
+🤖 CYBORG 🤖 2026-03-10T10:12:58,839 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:58,848 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:59,016 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] STEP  [API] - Response with status: 201 received from endpoint: POST-https://reqres.in/api/users in 163ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:59,022 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:59,027 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:59 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:59,037 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:59,040 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=201}]
+🤖 CYBORG 🤖 2026-03-10T10:12:59,047 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 201, Actual: 201)
+🤖 CYBORG 🤖 2026-03-10T10:12:59,052 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [QUEST] - The quest has dropped the ring.
+🤖 CYBORG 🤖 2026-03-10T10:12:59,057 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [QUEST] - The quest has reached his end
+🤖 CYBORG 🤖 2026-03-10T10:12:59,067 [scenario=AdvancedExamplesTest.showsLateCraftModelMaterializedOnDemand] INFO  [QUEST] - The quest of 'showsLateCraftModelMaterializedOnDemand(Quest, Late)' has concluded with glory. Status: SUCCESS. Duration: 0 seconds.

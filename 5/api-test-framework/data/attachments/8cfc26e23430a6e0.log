@@ -1,0 +1,18 @@
+🤖 CYBORG 🤖 2026-03-10T10:12:55,822 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:55,826 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:55,829 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:55,831 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] INFO  [QUEST] - The quest: 'showsLoginWithDtoAndTokenAssertion(Quest)' has begun and is crafted.
+🤖 CYBORG 🤖 2026-03-10T10:12:55,835 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:55,853 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/login.
+🤖 CYBORG 🤖 2026-03-10T10:12:55,858 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:55,861 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:56,106 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] STEP  [API] - Response with status: 200 received from endpoint: POST-https://reqres.in/api/login in 239ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,123 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,128 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:56 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:56,148 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] INFO  [API] - Starting response validation with 2 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:56,172 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=200, token=QpwL5tke4Pnpja7X4}]
+🤖 CYBORG 🤖 2026-03-10T10:12:56,175 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 200, Actual: 200)
+🤖 CYBORG 🤖 2026-03-10T10:12:56,178 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] VALIDATION [QUEST] - ✔ Validation passed: NOT_NULL (Expected: true, Actual: QpwL5tke4Pnpja7X4)
+🤖 CYBORG 🤖 2026-03-10T10:12:56,183 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] INFO  [QUEST] - The quest has dropped the ring.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,184 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] INFO  [QUEST] - The quest has reached his end
+🤖 CYBORG 🤖 2026-03-10T10:12:56,189 [scenario=GettingStartedTest.showsLoginWithDtoAndTokenAssertion] INFO  [QUEST] - The quest of 'showsLoginWithDtoAndTokenAssertion(Quest)' has concluded with glory. Status: SUCCESS. Duration: 0 seconds.

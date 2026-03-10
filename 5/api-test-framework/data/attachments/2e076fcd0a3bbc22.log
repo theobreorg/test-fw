@@ -1,0 +1,48 @@
+🤖 CYBORG 🤖 2026-03-10T10:12:53,739 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:53,752 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:53,762 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:53,794 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [QUEST] - The quest: 'showsApiLevelAuthenticationWithAuthenticateViaApi(Quest)' has begun and is crafted.
+🤖 CYBORG 🤖 2026-03-10T10:12:53,809 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Updated quest storage with credentials for username: eve.holt@reqres.in
+🤖 CYBORG 🤖 2026-03-10T10:12:53,821 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:54,563 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/login.
+🤖 CYBORG 🤖 2026-03-10T10:12:54,575 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:54,586 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:55,476 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Response with status: 200 received from endpoint: POST-https://reqres.in/api/login in 872ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:55,513 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:55,535 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:55 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:56,033 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [API] - Successfully authenticated user: eve.holt@reqres.in
+🤖 CYBORG 🤖 2026-03-10T10:12:56,049 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,113 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/users.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,122 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,131 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:56,332 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Response with status: 201 received from endpoint: POST-https://reqres.in/api/users in 190ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,337 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,341 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:56 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:56,346 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:56,358 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=201}]
+🤖 CYBORG 🤖 2026-03-10T10:12:56,366 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 201, Actual: 201)
+🤖 CYBORG 🤖 2026-03-10T10:12:56,414 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/users.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,418 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,421 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:56,639 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Response with status: 201 received from endpoint: POST-https://reqres.in/api/users in 214ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,647 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,652 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:56 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:56,664 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:56,669 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=201}]
+🤖 CYBORG 🤖 2026-03-10T10:12:56,672 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 201, Actual: 201)
+🤖 CYBORG 🤖 2026-03-10T10:12:56,677 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] VALIDATION [QUEST] - Starting hard validation...
+🤖 CYBORG 🤖 2026-03-10T10:12:56,680 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [QUEST] - Fetching data from storage by key: 'POST_CREATE_USER' and type: 'io.restassured.response.Response'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,774 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] VALIDATION [QUEST] - Hard validation completed successfully.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,797 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [API] - Prepared RequestSpecification with pathParams: {id=3}, queryParams: {}, headers: {}
+🤖 CYBORG 🤖 2026-03-10T10:12:56,807 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Sending request to endpoint DELETE-https://reqres.in/api/users/3.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,815 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request body: .
+🤖 CYBORG 🤖 2026-03-10T10:12:56,818 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:57,124 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] STEP  [API] - Response with status: 204 received from endpoint: DELETE-https://reqres.in/api/users/3 in 297ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:57,128 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response body: .
+🤖 CYBORG 🤖 2026-03-10T10:12:57,132 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:57 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:57,137 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:57,141 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=204}]
+🤖 CYBORG 🤖 2026-03-10T10:12:57,149 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 204, Actual: 204)
+🤖 CYBORG 🤖 2026-03-10T10:12:57,153 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [QUEST] - The quest has dropped the ring.
+🤖 CYBORG 🤖 2026-03-10T10:12:57,159 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [QUEST] - The quest has reached his end
+🤖 CYBORG 🤖 2026-03-10T10:12:57,168 [scenario=BasicToAdvancedEvolutionTest.showsApiLevelAuthenticationWithAuthenticateViaApi] INFO  [QUEST] - The quest of 'showsApiLevelAuthenticationWithAuthenticateViaApi(Quest)' has concluded with glory. Status: SUCCESS. Duration: 3 seconds.

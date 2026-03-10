@@ -1,0 +1,55 @@
+🤖 CYBORG 🤖 2026-03-10T10:12:53,473 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:53,594 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:53,603 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [QUEST] - Service: 'io.cyborgcode.roa.framework.chain.FluentServiceDecorator' has been registered for the quest
+🤖 CYBORG 🤖 2026-03-10T10:12:53,614 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest: 'showsEncapsulatedValidationUsingEvolutionRing(Quest)' has begun and is crafted.
+🤖 CYBORG 🤖 2026-03-10T10:12:53,638 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Updated quest storage with credentials for username: eve.holt@reqres.in
+🤖 CYBORG 🤖 2026-03-10T10:12:53,652 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:54,563 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/login.
+🤖 CYBORG 🤖 2026-03-10T10:12:54,577 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:54,591 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:55,476 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Response with status: 200 received from endpoint: POST-https://reqres.in/api/login in 866ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:55,515 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:55,541 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:55 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:56,031 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [API] - Successfully authenticated user: eve.holt@reqres.in
+🤖 CYBORG 🤖 2026-03-10T10:12:56,219 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [QUEST] - Creating data for: USER_LEADER
+🤖 CYBORG 🤖 2026-03-10T10:12:56,242 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,260 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/users.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,266 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,273 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:56,426 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Response with status: 201 received from endpoint: POST-https://reqres.in/api/users in 149ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,432 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,437 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:56 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:56,442 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:56,445 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=201}]
+🤖 CYBORG 🤖 2026-03-10T10:12:56,450 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 201, Actual: 201)
+🤖 CYBORG 🤖 2026-03-10T10:12:56,522 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [QUEST] - Creating data for: USER_INTERMEDIATE
+🤖 CYBORG 🤖 2026-03-10T10:12:56,529 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,540 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Sending request to endpoint POST-https://reqres.in/api/users.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,544 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,548 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:56,716 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Response with status: 201 received from endpoint: POST-https://reqres.in/api/users in 156ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,728 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response body: {
+🤖 CYBORG 🤖 2026-03-10T10:12:56,736 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:56 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:56,742 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:56,749 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=201}]
+🤖 CYBORG 🤖 2026-03-10T10:12:56,756 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 201, Actual: 201)
+🤖 CYBORG 🤖 2026-03-10T10:12:56,761 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has used the ring: 'Ring of Evolution'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,769 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,775 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] VALIDATION [QUEST] - Starting hard validation...
+🤖 CYBORG 🤖 2026-03-10T10:12:56,785 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] VALIDATION [QUEST] - Hard validation completed successfully.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,793 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has dropped the ring.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,797 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has reached his end
+🤖 CYBORG 🤖 2026-03-10T10:12:56,802 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The ripper has arrived
+🤖 CYBORG 🤖 2026-03-10T10:12:56,834 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest has used the ring: 'API'
+🤖 CYBORG 🤖 2026-03-10T10:12:56,841 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [API] - Prepared RequestSpecification with pathParams: {id=3}, queryParams: {}, headers: {}
+🤖 CYBORG 🤖 2026-03-10T10:12:56,847 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Sending request to endpoint DELETE-https://reqres.in/api/users/3.
+🤖 CYBORG 🤖 2026-03-10T10:12:56,850 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request body: .
+🤖 CYBORG 🤖 2026-03-10T10:12:56,853 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Request headers: Accept=application/json, application/javascript, text/javascript, text/json
+🤖 CYBORG 🤖 2026-03-10T10:12:57,089 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] STEP  [API] - Response with status: 204 received from endpoint: DELETE-https://reqres.in/api/users/3 in 231ms.
+🤖 CYBORG 🤖 2026-03-10T10:12:57,092 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response body: .
+🤖 CYBORG 🤖 2026-03-10T10:12:57,095 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Response headers: Date=Tue, 10 Mar 2026 10:12:57 GMT
+🤖 CYBORG 🤖 2026-03-10T10:12:57,100 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [API] - Starting response validation with 1 assertion(s).
+🤖 CYBORG 🤖 2026-03-10T10:12:57,103 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] EXTENDED [API] - Validation target: [{AssertionKeyForStatus=204}]
+🤖 CYBORG 🤖 2026-03-10T10:12:57,105 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] VALIDATION [QUEST] - ✔ Validation passed: IS (Expected: 204, Actual: 204)
+🤖 CYBORG 🤖 2026-03-10T10:12:57,107 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - DataRipper processed target: 'DELETE_ADMIN_USER'.
+🤖 CYBORG 🤖 2026-03-10T10:12:57,119 [scenario=BasicToAdvancedEvolutionTest.showsEncapsulatedValidationUsingEvolutionRing] INFO  [QUEST] - The quest of 'showsEncapsulatedValidationUsingEvolutionRing(Quest)' has concluded with glory. Status: SUCCESS. Duration: 3 seconds.
