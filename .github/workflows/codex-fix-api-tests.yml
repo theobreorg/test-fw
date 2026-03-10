@@ -1,0 +1,215 @@
+name: Codex Fix Failed API Tests
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+on:
+  workflow_run:
+    workflows: ["API Tests"]
+    types: [completed]
+
+concurrency:
+  group: codex-fix-api-tests-${{ github.event.workflow_run.id }}
+  cancel-in-progress: false
+
+jobs:
+  codex-fix:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout failing SHA
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+
+      # 1) Download the FULL workflow run logs (zip) from the failed run
+      - name: Download workflow run logs (zip)
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const run_id = context.payload.workflow_run.id;
+            const { owner, repo } = context.repo;
+
+            const res = await github.rest.actions.downloadWorkflowRunLogs({
+              owner,
+              repo,
+              run_id,
+            });
+
+            const fs = require("fs");
+            fs.writeFileSync("failed-run-logs.zip", Buffer.from(res.data));
+            core.info("Saved failed-run-logs.zip");
+
+      - name: Unzip workflow logs
+        run: |
+          mkdir -p failed-run-logs
+          unzip -o failed-run-logs.zip -d failed-run-logs
+          echo "Unzipped workflow logs:"
+          find failed-run-logs -maxdepth 3 -type f | sort | head -n 200
+
+      # 2) Download artifacts produced by roa-tests.yml (final allure report + any allure-results)
+      - name: Download Allure artifacts from failed run
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const run_id = context.payload.workflow_run.id;
+            const { owner, repo } = context.repo;
+
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner,
+              repo,
+              run_id
+            });
+
+            const fs = require("fs");
+            const path = require("path");
+
+            fs.mkdirSync("failed-run-artifacts", { recursive: true });
+
+            // Prefer the merged final report if present, otherwise take all allure-results artifacts.
+            const preferred = [
+              "final-allure-report-api-test-framework",
+            ];
+
+            const picked = [];
+
+            for (const name of preferred) {
+              const found = artifacts.data.artifacts.find(a => a.name === name);
+              if (found) picked.push(found);
+            }
+
+            if (picked.length === 0) {
+              // Fallback: download all allure-related artifacts
+              for (const a of artifacts.data.artifacts) {
+                if (a.name.startsWith("allure-results-") || a.name.startsWith("final-allure-report")) {
+                  picked.push(a);
+                }
+              }
+            }
+
+            core.info(`Artifacts total: ${artifacts.data.artifacts.length}`);
+            core.info(`Artifacts selected: ${picked.map(a => a.name).join(", ") || "(none)"}`);
+
+            for (const artifact of picked) {
+              const download = await github.rest.actions.downloadArtifact({
+                owner,
+                repo,
+                artifact_id: artifact.id,
+                archive_format: "zip",
+              });
+
+              const out = path.join("failed-run-artifacts", `${artifact.name}.zip`);
+              fs.writeFileSync(out, Buffer.from(download.data));
+              core.info(`Downloaded ${artifact.name} -> ${out}`);
+            }
+
+      - name: Unzip artifacts
+        run: |
+          mkdir -p failed-run-artifacts/unzipped
+          shopt -s nullglob
+          for f in failed-run-artifacts/*.zip; do
+            unzip -o "$f" -d failed-run-artifacts/unzipped
+          done
+          echo "Artifacts extracted:"
+          find failed-run-artifacts/unzipped -maxdepth 4 -type f | sort | head -n 200
+
+      # (Optional but useful) Make Maven able to pull your ROA deps from GitHub Packages
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+#      - name: Configure Maven settings.xml for GitHub Packages
+#        run: |
+#          mkdir -p ~/.m2
+#          cat > ~/.m2/settings.xml <<EOF
+#          <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+#                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+#                    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+#            <servers>
+#              <server>
+#                <id>github-roa-libraries</id>
+#                <username>${MAVEN_USER}</username>
+#                <password>${MAVEN_TOKEN}</password>
+#              </server>
+#              <server>
+#                <id>github-roa-plugins</id>
+#                <username>${MAVEN_USER}</username>
+#                <password>${MAVEN_TOKEN}</password>
+#              </server>
+#            </servers>
+#          </settings>
+#          EOF
+#        env:
+#          MAVEN_USER: ${{ secrets.GH_PACKAGES_USER }}
+#          MAVEN_TOKEN: ${{ secrets.GH_PACKAGES_PAT }}
+
+      - name: Create Codex prompt
+        run: |
+          mkdir -p .github/codex/prompts
+          cat > .github/codex/prompts/fix-api-tests.md <<'EOF'
+          The "API Tests" GitHub Actions workflow failed.
+
+          You have access to:
+          - Full workflow logs under: failed-run-logs/
+          - Allure report / results under: failed-run-artifacts/unzipped/
+          - The repository checkout at the failing SHA.
+
+          Task:
+          1) Identify the failing API test(s) and root cause using logs + Allure artifacts.
+          2) Fix ONLY test code / test-support code in this repository (do not change unrelated app code).
+          3) Prefer minimal changes. Do not disable tests or reduce coverage to "make it green".
+          4) After changes, run:
+             mvn -pl api-test-framework -am test
+          5) Summarize:
+             - root cause
+             - files changed
+             - why this fix is correct
+             - test command output summary
+
+          Notes:
+          - This is Java + Maven API automation.
+          - Focus on broken assertions, outdated contract expectations, data setup, flaky retry logic, etc.
+          EOF
+
+      - name: Run Codex (full-auto)
+        id: run_codex
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .github/codex/prompts/fix-api-tests.md
+          output-file: codex-output.md
+          safety-strategy: drop-sudo
+          sandbox: workspace-write
+          codex-args: '["--full-auto"]'
+
+      - name: Show diff
+        run: |
+          git status
+          git diff --stat
+
+      - name: Create PR with Codex fix
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "fix(api-tests): Codex repair after failed API Tests run"
+          branch: codex/fix-api-tests-${{ github.event.workflow_run.run_number }}
+          title: "Codex fix: API Tests failed (run #${{ github.event.workflow_run.run_number }})"
+          body: |
+            Automated PR generated by Codex after a failed **API Tests** workflow run.
+
+            - Run: ${{ github.event.workflow_run.html_url }}
+            - SHA: ${{ github.event.workflow_run.head_sha }}
+
+            Codex output: `codex-output.md`
+          add-paths: |
+            api-test-framework
+            codex-output.md
+            .github/codex/prompts/fix-api-tests.md
