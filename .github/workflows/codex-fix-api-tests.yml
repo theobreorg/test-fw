@@ -138,6 +138,10 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      # Make Maven runnable inside Codex sandbox (workspace-write)
+      - name: Prepare local Maven repo inside workspace
+        run: mkdir -p .m2/repository
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -195,8 +199,11 @@ jobs:
           4) Fix ONLY test code / test-support code in this repository (do not change unrelated app code).
           5) Prefer minimal changes. Do not disable tests or reduce coverage to "make it green".
           6) Prefer contract-aligned fixes over brittle assertion changes.
-          7) After changes, run:
-             mvn -pl api-test-framework -am test
+          7) After changes, do Iteration loop (MUST follow):
+             - Run: mvn -U -pl api-test-framework -am test -Dmaven.repo.local=$GITHUB_WORKSPACE/.m2/repository
+             - If tests fail due to code/test reasons: apply the minimal fix, then rerun the same command.
+             - Repeat until the command succeeds, but stop after 3 iterations and summarize why it can’t be fixed safely.
+             - If the failure is environmental (e.g., cannot resolve repo.maven.apache.org / network/DNS): retry the same command up to 3 times with short pauses; if still failing, stop and report “environmental – cannot validate”.
           8) Summarize:
              - root cause
              - whether MCP contract lookup was used
