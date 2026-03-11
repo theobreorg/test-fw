@@ -119,37 +119,55 @@ jobs:
           echo "Artifacts extracted:"
           find failed-run-artifacts/unzipped -maxdepth 4 -type f | sort | head -n 200
 
-      # (Optional but useful) Make Maven able to pull your ROA deps from GitHub Packages
+      - name: Build failure summary for Codex (cheap)
+        run: |
+          mkdir -p codex-context
+          {
+            echo "=== Key failures (top 300 matches) ==="
+            grep -R --line-number -E \
+              "BUILD FAILURE|Failed tests:|Tests run:|Errors:|Failures:|AssertionError|expected:|but was:|HTTP/|status code|NoSuchMethodError|NullPointerException|Timeout" \
+              failed-run-logs failed-run-artifacts/unzipped 2>/dev/null \
+              | head -n 300
+          } > codex-context/failure-summary.txt
+
+          echo "Wrote codex-context/failure-summary.txt"
+
       - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
-#      - name: Configure Maven settings.xml for GitHub Packages
-#        run: |
-#          mkdir -p ~/.m2
-#          cat > ~/.m2/settings.xml <<EOF
-#          <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-#                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-#                    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
-#            <servers>
-#              <server>
-#                <id>github-roa-libraries</id>
-#                <username>${MAVEN_USER}</username>
-#                <password>${MAVEN_TOKEN}</password>
-#              </server>
-#              <server>
-#                <id>github-roa-plugins</id>
-#                <username>${MAVEN_USER}</username>
-#                <password>${MAVEN_TOKEN}</password>
-#              </server>
-#            </servers>
-#          </settings>
-#          EOF
-#        env:
-#          MAVEN_USER: ${{ secrets.GH_PACKAGES_USER }}
-#          MAVEN_TOKEN: ${{ secrets.GH_PACKAGES_PAT }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Download OpenAPI spec
+        run: |
+          mkdir -p specs
+          curl -s https://reqres.in/openapi.json -o specs/openapi.json
+
+      - name: Configure Codex MCP
+        run: |
+          mkdir -p .codex-home
+          cat > .codex-home/config.toml <<'EOF'
+          approval_policy = "never"
+
+          [mcp_servers.reqres_openapi]
+          command = "npx"
+          args = [
+            "-y",
+            "@ivotoby/openapi-mcp-server",
+            "--api-base-url",
+            "https://reqres.in",
+            "--openapi-spec",
+            "specs/openapi.json"
+          ]
+          startup_timeout_sec = 20
+          tool_timeout_sec = 90
+          required = true
+          EOF
 
       - name: Create Codex prompt
         run: |
@@ -160,23 +178,35 @@ jobs:
           You have access to:
           - Full workflow logs under: failed-run-logs/
           - Allure report / results under: failed-run-artifacts/unzipped/
-          - The repository checkout at the failing SHA.
+          - The repository checkout at the failing SHA
+          - A local OpenAPI spec at: specs/openapi.json
+          - An MCP server named: reqres_openapi
+          
+          Start by reading `codex-context/failure-summary.txt`. Only open other logs/artifacts if the summary is insufficient to identify the failing test(s) and root cause.
 
           Task:
           1) Identify the failing API test(s) and root cause using logs + Allure artifacts.
-          2) Fix ONLY test code / test-support code in this repository (do not change unrelated app code).
-          3) Prefer minimal changes. Do not disable tests or reduce coverage to "make it green".
-          4) After changes, run:
+          2) Use the MCP server ONLY for contract lookup:
+             - inspect endpoints
+             - inspect request parameters
+             - inspect response schemas
+             - inspect expected status codes
+          3) Do NOT use MCP for exploratory live API behavior unless absolutely necessary.
+          4) Fix ONLY test code / test-support code in this repository (do not change unrelated app code).
+          5) Prefer minimal changes. Do not disable tests or reduce coverage to "make it green".
+          6) Prefer contract-aligned fixes over brittle assertion changes.
+          7) After changes, run:
              mvn -pl api-test-framework -am test
-          5) Summarize:
+          8) Summarize:
              - root cause
+             - whether MCP contract lookup was used
              - files changed
              - why this fix is correct
              - test command output summary
 
           Notes:
           - This is Java + Maven API automation.
-          - Focus on broken assertions, outdated contract expectations, data setup, flaky retry logic, etc.
+          - Focus on broken assertions, outdated contract expectations, data setup, and contract mismatches.
           EOF
 
       - name: Run Codex (full-auto)
@@ -188,7 +218,8 @@ jobs:
           output-file: codex-output.md
           safety-strategy: drop-sudo
           sandbox: workspace-write
-          codex-args: '["--full-auto"]'
+          codex-home: .codex-home
+          codex-args: '["--ask-for-approval","never","--model","gpt-5.1-codex-mini"]'
 
       - name: Show diff
         run: |
