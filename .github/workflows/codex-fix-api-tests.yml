@@ -219,7 +219,7 @@ jobs:
           safety-strategy: drop-sudo
           sandbox: workspace-write
           codex-home: .codex-home
-          codex-args: '["--ask-for-approval","never","--model","gpt-5.1-codex-mini"]'
+          codex-args: '["--model","gpt-5.1-codex-mini"]'
 
       - name: Show diff
         run: |
