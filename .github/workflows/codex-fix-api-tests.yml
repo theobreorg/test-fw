@@ -230,6 +230,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ github.token }}
+          base: main
           commit-message: "fix(api-tests): Codex repair after failed API Tests run"
           branch: codex/fix-api-tests-${{ github.event.workflow_run.run_number }}
           title: "Codex fix: API Tests failed (run #${{ github.event.workflow_run.run_number }})"
