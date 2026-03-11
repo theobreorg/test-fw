@@ -61,13 +61,13 @@ class GettingStartedTest extends BaseQuest {
 
    @Test
    @Regression
-   @Description("Shows GET with a query parameter via quest.use(RING_OF_API) + requestAndValidate; minimal status/header checks.")
+   @Description("Shows GET with a query parameter via quest.use(RING_OF_API) + requestAndValidate; minimal success status/header checks.")
    void showsBasicGetWithQueryParamAndMinimalAssertions(Quest quest) {
       quest
             .use(RING_OF_API)
             .requestAndValidate(
                   GET_ALL_USERS.withQueryParam(PAGE_PARAM, PAGE_TWO),
-                  Assertion.builder().target(STATUS).type(IS).expected(SC_BAD_REQUEST).build(),
+                  Assertion.builder().target(STATUS).type(IS).expected(SC_OK).build(),
                   Assertion.builder().target(HEADER).key(CONTENT_TYPE).type(CONTAINS).expected(JSON.toString()).build()
             )
             .complete();
